@@ -6,7 +6,7 @@ FORMATTER_CONFIG = {BasedOnStyle: Google, IndentWidth: 4}
 FORMATTER_FLAGS = -i -style='$(FORMATTER_CONFIG)'
 
 LINTER = clang-tidy
-LINTER_FLAGS = -checks=bugprone-* -quiet -extra-arg=-fno-caret-diagnostics
+LINTER_FLAGS = -checks=bugprone-* -extra-arg=-std=c++20 -quiet -extra-arg=-fno-caret-diagnostics
 LINTER_COMPILER_FLAGS = -Iinclude -Wall
 
 C_FILES = $(shell find . -name "*.cpp" | sort)
