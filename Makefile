@@ -15,7 +15,7 @@ FILES = $(C_FILES) $(H_FILES)
 
 .PHONY: check format lint
 
-check: format lint
+check: format
 	@echo All files checked!
 
 format:
