@@ -10,7 +10,7 @@ class Solution {
         static std::unordered_map<char, int> value_map = {
             {'I', 1},   {'V', 5},   {'X', 10},  {'L', 50},
             {'C', 100}, {'D', 500}, {'M', 1000}};
-        
+
         // Keeps track of the previous to know when to subtract.
         // Plays a role if a lower roman is placed before a higher one.
         // Algorithm is O(n); simple for loop.
