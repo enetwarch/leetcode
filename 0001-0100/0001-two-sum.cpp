@@ -1,12 +1,14 @@
 #include <unordered_map>
 #include <vector>
 
+// https://leetcode.com/problems/two-sum/
 class Solution {
    public:
     std::vector<int> twoSum(std::vector<int>& nums, int target) {
+        // Hashmap for O(1) lookup with O(n) space complexity.
         std::unordered_map<int, int> map;
 
-        // This should be O(n) time and space complexity.
+        // Time complexity is O(n) worst case scenario.
         for (int i = 0; i < nums.size(); i++) {
             int correct_addend = target - nums[i];
             if (map.contains(correct_addend)) {
