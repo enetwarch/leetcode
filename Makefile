@@ -2,16 +2,13 @@
 # They need to be installed in your local machine in order to work.
 
 FORMATTER = clang-format
-FORMATTER_CONFIG = {BasedOnStyle: Google, IndentWidth: 4}
-FORMATTER_FLAGS = -i -style='$(FORMATTER_CONFIG)'
+FORMATTER_FLAGS = -i
 
 LINTER = clang-tidy
-LINTER_FLAGS = -checks=bugprone-* -extra-arg=-std=c++20 -quiet -extra-arg=-fno-caret-diagnostics
-LINTER_COMPILER_FLAGS = -Iinclude -Wall
+LINTER_FLAGS = -quiet
 
-C_FILES = $(shell find . -name "*.cpp" | sort)
-H_FILES = $(shell find . -name "*.hpp" | sort)
-FILES = $(C_FILES) $(H_FILES)
+CPP_FILES = $(shell find src -name "*.cpp" | sort)
+HPP_FILES = $(shell find src -name "*.hpp" | sort)
 
 .PHONY: check format lint
 
@@ -19,9 +16,11 @@ check: format
 	@echo All files checked!
 
 format:
-	@$(FORMATTER) $(FORMATTER_FLAGS) $(FILES)
+	@$(FORMATTER) $(FORMATTER_FLAGS) $(CPP_FILES) $(HPP_FILES)
+	@echo All files formatted!
 
 lint:
-	@for file in $(FILES); do \
-		$(LINTER) $(LINTER_FLAGS) $$file -- $(LINTER_COMPILER_FLAGS); \
+	@for file in $(CPP_FILES) $(HPP_FILES); do \
+		$(LINTER) $(LINTER_FLAGS) $$file --; \
 	done
+	@echo All files linted!

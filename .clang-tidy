@@ -1,0 +1,9 @@
+Checks: 'bugprone-*, -bugprone-easily-swappable-parameters'
+HeaderFilterRegex: '.*'
+WarningsAsErrors: ''
+
+ExtraArgs:
+  - -std=c++23
+  - -fno-caret-diagnostics
+  - -Iinclude
+  - -Wall
