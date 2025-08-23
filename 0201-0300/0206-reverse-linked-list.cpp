@@ -1,5 +1,3 @@
-#include <optional>
-
 struct ListNode {
     int val;
     ListNode* next;
