@@ -7,8 +7,8 @@ FORMATTER_FLAGS = -i
 LINTER = clang-tidy
 LINTER_FLAGS = -quiet
 
-CPP_FILES = $(shell find src -name "*.cpp" | sort)
-HPP_FILES = $(shell find src -name "*.hpp" | sort)
+CPP_FILES = $(shell find . -name "*.cpp" | sort)
+HPP_FILES = $(shell find . -name "*.hpp" | sort)
 
 .PHONY: check format lint
 
