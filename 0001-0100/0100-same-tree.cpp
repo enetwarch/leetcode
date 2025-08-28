@@ -43,7 +43,7 @@ class Solution {
                   (ppointer->right == nullptr ^ qpointer->right == nullptr))))
                 return false;
 
-            if (ppointer != nullptr) {
+            if (ppointer != nullptr && qpointer != nullptr) {
                 pqueue.push(ppointer->left);
                 pqueue.push(ppointer->right);
                 qqueue.push(qpointer->left);
