@@ -37,10 +37,10 @@ class Solution {
             // If the values are not equal, return false.
             // Also checks left and right pointers in advance if they are null.
             if ((ppointer == nullptr ^ qpointer == nullptr) ||
-                (ppointer != nullptr &&
+                ((ppointer != nullptr && qpointer != nullptr) &&
                  ((ppointer->val != qpointer->val) ||
-                  (ppointer->left == nullptr && qpointer->left != nullptr) ||
-                  (ppointer->right == nullptr && qpointer->right != nullptr))))
+                  (ppointer->left == nullptr ^ qpointer->left == nullptr) ||
+                  (ppointer->right == nullptr ^ qpointer->right == nullptr))))
                 return false;
 
             if (ppointer != nullptr) {
